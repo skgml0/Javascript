@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script>
+        const userdb= [
+  {
+    "_id": "61b05e5297fd262ae6aeeb00",
+    "id": "hojun",
+    "pw": "1234",
+    "index": 0,
+    "picture": "http://placehold.it/32x32",
+    "age": 40,
+    "eyeColor": "green",
+    "name": "Adela Allen",
+    "gender": "female",
+    "company": "ISOLOGICA",
+    "email": "adelaallen@isologica.com",
+    "phone": "+1 (986) 490-2963",
+    "address": "644 Dewitt Avenue, Hardyville, Nebraska, 6307",
+    "grade": "일반"
+  },
+  {
+    "_id": "61b05e529fdf5295a6568dd5",
+    "id": "Dominique",
+    "pw": "44d7563f-9cc1-4183-9c65-d494170de8a1",
+    "index": 1,
+    "picture": "http://placehold.it/32x32",
+    "age": 37,
+    "eyeColor": "brown",
+    "name": "Marissa Skinner",
+    "gender": "female",
+    "company": "UNI",
+    "email": "marissaskinner@uni.com",
+    "phone": "+1 (920) 568-2535",
+    "address": "496 Nevins Street, Hegins, Alaska, 9658",
+    "grade": "골드"
+  },
+  {
+    "_id": "61b05e5218dde48fb7350258",
+    "id": "Sweet",
+    "pw": "06f88c86-8e73-43e1-8f98-22f8e29894a0",
+    "index": 2,
+    "picture": "http://placehold.it/32x32",
+    "age": 40,
+    "eyeColor": "blue",
+    "name": "Rebekah Davis",
+    "gender": "female",
+    "company": "ZENSURE",
+    "email": "rebekahdavis@zensure.com",
+    "phone": "+1 (933) 573-3871",
+    "address": "969 Cadman Plaza, Cowiche, Maryland, 5640",
+    "grade": "관리자"
+  },
+  {
+    "_id": "61b05e5230c47cc48383be1e",
+    "id": "Wanda",
+    "pw": "88d66995-d84a-4fdf-9005-31933f8aa710",
+    "index": 3,
+    "picture": "http://placehold.it/32x32",
+    "age": 35,
+    "eyeColor": "green",
+    "name": "Mcclure Justice",
+    "gender": "male",
+    "company": "ACCIDENCY",
+    "email": "mcclurejustice@accidency.com",
+    "phone": "+1 (983) 579-3659",
+    "address": "926 Stoddard Place, Heil, Kentucky, 4878",
+    "grade": "다이아몬드"
+  },
+  {
+    "_id": "61b05e52e115f16332b9489e",
+    "id": "Florine",
+    "pw": "c564da84-5b4e-47cf-bb82-921649a27988",
+    "index": 4,
+    "picture": "http://placehold.it/32x32",
+    "age": 27,
+    "eyeColor": "blue",
+    "name": "Floyd Potts",
+    "gender": "male",
+    "company": "ISOSTREAM",
+    "email": "floydpotts@isostream.com",
+    "phone": "+1 (836) 533-2797",
+    "address": "755 Boerum Place, Starks, Georgia, 284",
+    "grade": "새싹"
+  },
+  {
+    "_id": "61b05e52d04dbf15a556c6be",
+    "id": "Ware",
+    "pw": "58fc9f27-0bbf-49da-8c81-4f6066be7338",
+    "index": 5,
+    "picture": "http://placehold.it/32x32",
+    "age": 27,
+    "eyeColor": "brown",
+    "name": "Alice Griffin",
+    "gender": "female",
+    "company": "FITCORE",
+    "email": "alicegriffin@fitcore.com",
+    "phone": "+1 (826) 467-2338",
+    "address": "776 Gunther Place, Barronett, Wyoming, 3578",
+    "grade": "일반"
+  },
+  {
+    "_id": "61b05e5216d19b1a753a899c",
+    "id": "Campbell",
+    "pw": "d3b557a1-4a05-4dcf-8ca9-e82cfdb92dc8",
+    "index": 6,
+    "picture": "http://placehold.it/32x32",
+    "age": 37,
+    "eyeColor": "blue",
+    "name": "Saundra Pace",
+    "gender": "female",
+    "company": "MIXERS",
+    "email": "saundrapace@mixers.com",
+    "phone": "+1 (967) 474-3533",
+    "address": "915 Beacon Court, Thatcher, Tennessee, 2271",
+    "grade": "관리자"
+  },
+  {
+    "_id": "61b05e52692cdd5921252d21",
+    "id": "Gilbert",
+    "pw": "7cc58f03-697b-4ec2-8d19-074a3ae5ed81",
+    "index": 7,
+    "picture": "http://placehold.it/32x32",
+    "age": 26,
+    "eyeColor": "brown",
+    "name": "Schultz Watson",
+    "gender": "male",
+    "company": "UPLINX",
+    "email": "schultzwatson@uplinx.com",
+    "phone": "+1 (967) 472-3492",
+    "address": "238 Schenck Place, Nile, Colorado, 7994",
+    "grade": "다이아몬드"
+  },
+  {
+    "_id": "61b05e52a889a2e6d0c8b016",
+    "id": "Yesenia",
+    "pw": "127281d4-32c3-4b0a-a82b-993d0be416d0",
+    "index": 8,
+    "picture": "http://placehold.it/32x32",
+    "age": 24,
+    "eyeColor": "blue",
+    "name": "Madelyn Crawford",
+    "gender": "female",
+    "company": "AUTOGRATE",
+    "email": "madelyncrawford@autograte.com",
+    "phone": "+1 (936) 409-2577",
+    "address": "437 Dooley Street, Springhill, Louisiana, 3294",
+    "grade": "골드"
+  }
+]
+
+//콜백지옥
+class GetUserData {
+            login(아이디, 비밀번호, 성공, 실패) {
+                const data = userdb.find(user => user.id === 아이디 && user.pw === 비밀번호);
+                if (data){
+                    성공(아이디);
+                } else {
+                    실패(new Error('로그인 실패!'));
+                }
+            }
+            getUserDataSet(이용자, 성공, 실패) {
+                const data = userdb.find(user => user.id === 이용자);
+                if (data) {
+                    성공({
+                        id : data.id,
+                        picture : data.picture,
+                        name : data.name,
+                        company : data.company,
+                        email : data.email,
+                        grade : data.grade
+                    });
+                } else {
+                    실패(new Error('데이터 베이스 로드 실패!'));
+                }
+            }
+        }
+
+        const userData = new GetUserData();
+        const id = 'hojun';
+        const pw = '1234';
+        userData.login(
+            id, 
+            pw, 
+            (userID) => {
+                userData.getUserDataSet(
+                    userID, 
+                    (userBasicInfo) => {
+                        // grade에 따른 콜백을 하나 더 넣어줄 수 있습니다.
+                        console.log(userBasicInfo);
+                    }, 
+                    (실패)=>{
+                        console.log(실패);
+                    }
+                )
+            },
+            (실패) => {
+                console.log(실패)
+            }
+        );
+    </script>
+</body>
+</html>
