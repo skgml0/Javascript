@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // 문서가 다 준비되면 실행!
+        $(function () { // 이것을 주석처리하면 실행이 안됩니다. html이 다 로드되지 않은 상태이기 때문에 그렇습니다.
+            $('.box').fadeOut(3000).fadeIn(3000);
+        })
+    </script>
     <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: palevioletred;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            opacity: 0.3;
+            background-color: red;
+        }
     </style>
 </head>
+
 <body>
     <h1 id="one">jQuery 실습</h1>
     <p>hello</p>
@@ -28,11 +48,11 @@
      -->
     <div class="wrapper">
         <h1 class="title">TITLE</h1>
-            <ul>
-                <li class="items">item1</li>
-                <li class="items">item2</li>
-                <li class="items">item3</li>
-            </ul>
+        <ul>
+            <li class="items">item1</li>
+            <li class="items">item2</li>
+            <li class="items">item3</li>
+        </ul>
     </div>
     <ul class="ul2">
         <li>hello</li>
@@ -46,40 +66,87 @@
         <li>hello</li>
         <li>hello</li>
     </ul>
+    <div id="div1">11hello world</div>
+    <div class="one blue">hello world</div>
+    <div class="two blue">hello world</div>
+    <p class="blue">hello world</p>
+    <div class="three">hello</div>
+    <div class="three blue">hello</div>
+    <div class="box">hello world</div>
+    <div class="box2">hello world</div>
+    <button class="btn3">눌러봐요!</button>
     <script>
         //document.getElementById('one').innerHTML= '!!!';
         //p태그는 #없어도 됨. hide()하면 안보임
         $('#one').text('hello jquery');
         // $('p').hide();
-        $('.btn1').click(function(){
+        $('.btn1').click(function () {
             alert('클릭했네요?');
         });
         // $('.실습').text('실습중이에요!');
         $('.실습').html('<strong>실습</strong>중이에요!');
-        $('.실습').css('color','red');
-        $('.실습').css('backgroundColor','pink');
+        $('.실습').css('color', 'red');
+        $('.실습').css('backgroundColor', 'pink');
         //$('.실습').css부분은 카멜표기법(낙타)을 따릅니다. (css문법과다름-background-color)
-        $('img').attr('src','a.jpg');
-        $('img').attr('data-name','프로필').attr('data-hello','world');
-        $('.btn2').click(function(){
+        $('img').attr('src', 'a.jpg');
+        $('img').attr('data-name', '프로필').attr('data-hello', 'world');
+        $('.btn2').click(function () {
             let 메모장값 = $('#메모장').val();
             $('#메모장').val('값을 입력하세요.');
             alert(메모장값);
         });
-        $('#p3').css('color','red').css('backgroundColor', 'blue');
-        $('.items').parent().css('backgroundColor','blue');
-       
-        // $('.items:nth-child(2)').css('color','red');
-        $('.items:eq(1)').css('color','red');
-        $('.ul2>li:lt(3)').css('color','green');
-        // $('.ul2>li:nth-child(-n+3)').css('color','blue').css('backgroundColor','green');
-        $('.ul2>li:nth-child(n+7)').css('color','blue').css('backgroundColor','red');
-        // $('.ul2>li:gt(7)').css('color','blue').css('backgroundColor','red');
-        $('ul').append('<li>hello world end</li>')
-        $('ul').prepend('<li>hello world start</li>')
-        $('ul').after('<h2>끝</h2>')
-        $('ul').before('<h2>시작</h2>')
+        $('#p3').css('color', 'red').css('backgroundColor', 'blue');
+        $('.items').parent().css('backgroundColor', 'blue');
 
+        // $('.items:nth-child(2)').css('color','red');
+        $('.items:eq(1)').css('color', 'red');
+        // $('.ul2>li:lt(3)').css('color', 'green');
+        // $('.ul2>li:nth-child(-n+3)').css('color','blue').css('backgroundColor','green');
+        $('.ul2>li:nth-child(n+7)').css('color', 'red').css('backgroundColor', 'red');
+        // $('.ul2>li:gt(7)').css('color','blue').css('backgroundColor','red');
+        $('ul').append('<li>hello world end</li>');
+        $('ul').prepend('<li>hello world start</li>');
+        $('ul').after('<h2>끝</h2>');
+        $('ul').before('<h2>시작</h2>');
+        // $("#div1").remove();
+        $("#div1").addClass('important!');
+        $('.one,.two,p').removeClass('blue');
+        $('.three').toggleClass('blue');
+        $('.box').fadeOut(3000).fadeIn(3000);
+        // $('.box').click(function(){
+        //     $(this).stop()
+        // });
+        // div 클릭했을 때 안 보이게 하기
+        // dom이 준비되면 실행해라!
+        $(function () {
+            $('.box').click(function () {
+                $(this).hide();
+            });
+        })
+        //JQuery -animate
+        //버튼 클릭했을 때 변화주기
+        $('#btn3').click(function () {
+            $('#box2').animate({
+                width: '300px',
+                height: '300px',
+                opacity: 1,
+            }, 'slow');
+        });
+        //hover - 색 변경하기(호버시 yellow, 호버에서 벗어났을때 blue)
+        $(".box2").hover(function () {
+            $(this).css("background-color", "yellow");
+        }, function () {
+            $(this).css("background-color", "blue");
+        });
+        //마우스가 영역에 들어왔을때
+        $(".box2").mouseenter(function () {
+            alert("You entered p1!");
+        });
+        //마우스가 영역 벗어났을때
+        $(".box2").mouseleave(function () {
+            alert("Bye! You now leaved p1!");
+        });
     </script>
 </body>
+
 </html>
