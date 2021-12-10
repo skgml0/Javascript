@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- 요소제어 -->
+    <!-- <ul></ul>
+    <button>Make me MORE!</button> -->
+    <!-- parentElement.inserBefore(target, location); target요소를 element의 자식인 location위치로 이동 -->
+    <!-- <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div> -->
+    <script>
+        // document.createElement(target); target 요소를 생성합니다.
+        // document.createTextNode(target); target 텍스트를 생성합니다.
+        // element.appendChild(target);    target 요소를 element의 자식으로 위치합니다.
+        // element.removeChild(target);    element의 target 자식 요소를 제거합니다.
+
+        // const myBtn = document.querySelector('button');
+        // const myUl = document.querySelector('ul');
+
+        // myBtn.addEventListener('click', function () {
+        //     for (let i = 0; i < 5; i++) {
+        //         const myLi = document.createElement('li');
+        //         myUl.appendChild(myLi);
+        //     }
+        // })
+        // parentElement.insertBefore(target, location); target요소를 element의 자식인 location 위치로 이동합니다.
+
+        var span = document.createElement("span");
+        var sibling = document.getElementById("childElement");
+        var parentDiv = document.getElementById("parentElement");
+        parentDiv.insertBefore(span, sibling);
+    </script>
+</body>
+
+</html>
